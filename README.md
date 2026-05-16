@@ -46,11 +46,14 @@ This project was built using **Programming Fundamentals** concepts only:
 
 ### Compile (Multi-file version)
 ```bash
+# From the repo root:
+cd src
 g++ main.cpp board.cpp pieces.cpp game.cpp -o chess
 ```
 
 ### Compile (Original single-file version)
 ```bash
+cd original
 g++ "Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp" -o chess_original
 ```
 
@@ -87,14 +90,18 @@ g++ "Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp" -o chess_original
 ## 📁 Project Structure
 
 ```
-📦 console-chess-cpp
- ┣ 📄 main.cpp        ← Entry point — defines globals, calls start()
- ┣ 📄 globals.h       ← Shared constants, Position struct, extern declarations
- ┣ 📄 board.h / .cpp  ← Board display, initialization, input validation
- ┣ 📄 pieces.h / .cpp ← All 6 piece movement + possibility functions (uses pointers)
- ┣ 📄 game.h / .cpp   ← Game loop, menus, turn logic, checkmate, resign
- ┣ 📄 Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp  ← Original single-file version
- ┣ 📄 Final Project 2023.pdf                                   ← Project specification
+📦 Chess-Game/
+ ┣ 📂 src/                   ← Refactored multi-file implementation
+ ┃  ┣ 📄 main.cpp        ← Entry point — defines globals, calls start()
+ ┃  ┣ 📄 globals.h       ← Shared constants, Position struct, extern vars
+ ┃  ┣ 📄 board.h/.cpp    ← Board display, initialization, input validation
+ ┃  ┣ 📄 pieces.h/.cpp   ← All 6 pieces: movement + possibilities (pointers)
+ ┃  ┗ 📄 game.h/.cpp     ← Game loop, menus, turn logic, checkmate, resign
+ ┣ 📂 original/              ← Original single-file academic submission
+ ┃  ┗ 📄 Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp
+ ┣ 📂 docs/                  ← Project documentation
+ ┃  ┗ 📄 Final Project 2023.pdf
+ ┣ 📄 .gitignore
  ┗ 📄 README.md
 ```
 
