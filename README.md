@@ -1,4 +1,4 @@
-# ♟️ Console Chess — C++
+# ♟️ Console Chess
 
 A **console-based two-player Chess game** written in C++ as a Programming Fundamentals (Spring 2023) course project. The game runs entirely in the terminal and implements core chess piece movement rules on a full 8×8 board.
 
