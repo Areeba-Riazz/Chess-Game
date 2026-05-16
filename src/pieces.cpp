@@ -117,10 +117,9 @@ void king_possibilities(char (*b)[COLS], Position pos, int current_turn) {
 // Slides until hitting a piece or board edge
 // -------------------------------------------------------
 void queen_possibilities(char (*b)[COLS], Position pos, int current_turn) {
-    // All 8 directions: [row_step][col_step]
     int dir[8][2] = {
-        {-1, 0}, {1, 0}, {0, -1}, {0, 1},    // straight
-        {-1,-1}, {-1, 1}, {1, -1}, {1, 1}     // diagonal
+        {-1, 0}, {1, 0}, {0, -1}, {0, 1},
+        {-1,-1}, {-1, 1}, {1, -1}, {1, 1}
     };
     for (int d = 0; d < 8; d++) {
         int nr = pos.row + dir[d][0];
@@ -129,7 +128,8 @@ void queen_possibilities(char (*b)[COLS], Position pos, int current_turn) {
             if (b[nr][nc] == '.') {
                 b[nr][nc] = 'x';
             } else if (is_enemy_piece(b[nr][nc], current_turn)) {
-                break; // can capture but cannot pass through
+                b[nr][nc] = 'x'; // mark capturable enemy square, then stop
+                break;
             } else {
                 break; // blocked by own piece
             }
@@ -151,6 +151,7 @@ void rook_possibilities(char (*b)[COLS], Position pos, int current_turn) {
             if (b[nr][nc] == '.') {
                 b[nr][nc] = 'x';
             } else if (is_enemy_piece(b[nr][nc], current_turn)) {
+                b[nr][nc] = 'x'; // mark capturable, then stop
                 break;
             } else {
                 break;
@@ -173,6 +174,7 @@ void bishop_possibilities(char (*b)[COLS], Position pos, int current_turn) {
             if (b[nr][nc] == '.') {
                 b[nr][nc] = 'x';
             } else if (is_enemy_piece(b[nr][nc], current_turn)) {
+                b[nr][nc] = 'x'; // mark capturable, then stop
                 break;
             } else {
                 break;
@@ -195,9 +197,9 @@ void knight_possibilities(char (*b)[COLS], Position pos, int current_turn) {
     for (int i = 0; i < 8; i++) {
         int nr = pos.row + moves[i][0];
         int nc = pos.col + moves[i][1];
+        // Mark both empty squares AND capturable enemy squares
         if (is_valid_pos(nr, nc) && !is_own_piece(b[nr][nc], current_turn)) {
-            if (b[nr][nc] == '.')
-                b[nr][nc] = 'x';
+            b[nr][nc] = 'x';
         }
     }
 }
