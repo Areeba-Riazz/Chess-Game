@@ -44,17 +44,10 @@ This project was built using **Programming Fundamentals** concepts only:
 
 ## 🕹️ How to Play
 
-### Compile (Multi-file version)
+### Compile
 ```bash
-# From the repo root:
 cd src
 g++ main.cpp board.cpp pieces.cpp game.cpp -o chess
-```
-
-### Compile (Original single-file version)
-```bash
-cd original
-g++ "Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp" -o chess_original
 ```
 
 ### Run
@@ -91,14 +84,12 @@ g++ "Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp" -o chess_original
 
 ```
 📦 Chess-Game/
- ┣ 📂 src/                   ← Refactored multi-file implementation
+ ┣ 📂 src/                   ← Source code
  ┃  ┣ 📄 main.cpp        ← Entry point — defines globals, calls start()
  ┃  ┣ 📄 globals.h       ← Shared constants, Position struct, extern vars
  ┃  ┣ 📄 board.h/.cpp    ← Board display, initialization, input validation
  ┃  ┣ 📄 pieces.h/.cpp   ← All 6 pieces: movement + possibilities (pointers)
  ┃  ┗ 📄 game.h/.cpp     ← Game loop, menus, turn logic, checkmate, resign
- ┣ 📂 original/              ← Original single-file academic submission
- ┃  ┗ 📄 Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp
  ┣ 📂 docs/                  ← Project documentation
  ┃  ┗ 📄 Final Project 2023.pdf
  ┣ 📄 .gitignore
@@ -121,13 +112,10 @@ g++ "Areeba-Riaz_i221244_Arslan-Javed_i220613_D_Project.cpp" -o chess_original
 - [x] Implemented proper checkmate — game ends and winner is declared
 - [x] Added pointers throughout (board as `char (*b)[8]`, `Position*` for piece finding)
 - [x] Added `Position` struct for clean coordinate handling
-- [x] Refactored into 5 separate files (`globals`, `board`, `pieces`, `game`, `main`)
+- [x] Organized into separate files (`globals`, `board`, `pieces`, `game`, `main`)
 - [x] Added live capture score tracking
 - [x] Added game mode menu (Explore Moves + Play Game)
 - [x] Added resign option
-- [x] Fixed all copy-paste bugs from original (knight checking bishop squares, etc.)
-- [x] Replaced all `goto` statements with `do-while` loops
-- [x] Replaced recursion-based retries with `while` loops
 
 ---
 
